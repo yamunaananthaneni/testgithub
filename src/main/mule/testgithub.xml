@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="testgithubFlow" doc:id="08c09506-2f5f-4427-b09a-06b9c0e792b5" >
 		<http:listener doc:name="Listener" doc:id="581e512d-c9e2-4d24-93f7-911ade80ed2a" config-ref="HTTP_Listener_config" path="/hub"/>
-		<logger level="INFO" doc:name="Logger" doc:id="cb7cab92-5e7a-4134-acbe-38fdcc3c8805" message="Startedflow 123"/>
+		<logger level="INFO" doc:name="Logger" doc:id="cb7cab92-5e7a-4134-acbe-38fdcc3c8805" message="Startedflow 12324"/>
 		<ee:transform doc:name="Transform Message" doc:id="dbda5b92-d26f-42bd-ba4d-488772278449" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
