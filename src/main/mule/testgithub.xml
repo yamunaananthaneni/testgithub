@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="4270c24b-47d7-46f2-a5a1-5db7a1e4cf8e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="testgithubFlow" doc:id="08c09506-2f5f-4427-b09a-06b9c0e792b5" >
+		<http:listener doc:name="Listener" doc:id="581e512d-c9e2-4d24-93f7-911ade80ed2a" config-ref="HTTP_Listener_config" path="/hub"/>
+		<logger level="INFO" doc:name="Logger" doc:id="cb7cab92-5e7a-4134-acbe-38fdcc3c8805" message="Startedflow"/>
+		<ee:transform doc:name="Transform Message" doc:id="dbda5b92-d26f-42bd-ba4d-488772278449" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
